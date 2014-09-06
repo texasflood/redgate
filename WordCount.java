@@ -4,12 +4,18 @@ import java.util.*;
 
 public class WordCount 
 {
+    private static Vector<String> words = new Vector<String>(0, 1);
+    private static Vector<Integer> wordFreqs = new Vector<Integer>(0, 1);
     public static void main(String[] args)
     {
         SimpleCharacterReader charRead = new SimpleCharacterReader();
+        wordCounter(charRead);
+    }
+    private static void wordCounter(SimpleCharacterReader charRead)
+    {
         String buffer = new String("");
-        Vector<String> words = new Vector<String>(0);
-        while (true)
+        boolean finished = false;
+        while (!finished)
         {
             try
             {
@@ -23,21 +29,45 @@ public class WordCount
                 {
                     if (buffer.length() != 0)
                     {
-                        words.addElement(buffer);
+                        addToWords(buffer);
+                        buffer = "";
                     }
-                    buffer = "";
                 }
             }
             catch(EOFException e)
             {
                 if (buffer.length() != 0)
                 {
-                    words.addElement(buffer);
+                    addToWords(buffer);
                 }
                 System.out.println("Finished Reading File");
                 System.out.println(words);
-                break;
+                System.out.println(wordFreqs);
+                System.out.println("words size: " + words.capacity());
+                System.out.println("wordFreqs size: " + wordFreqs.capacity());
+                words = new Vector<String>(0, 1);
+                wordFreqs = new Vector<Integer>(0, 1);
+                finished = true;
             }
         }
     }
+    private static void addToWords(String buffer)
+    {
+        buffer = buffer.toLowerCase();
+        boolean foundBuffer = false;
+        for (int i = 0; i < words.capacity(); i++)
+        {
+            if ((words.elementAt(i)).equals(buffer))
+            {
+                wordFreqs.setElementAt(wordFreqs.elementAt(i) + 1, i);
+                foundBuffer = true;
+            }
+        }
+        if (!foundBuffer)
+        {
+            words.addElement(buffer);
+            wordFreqs.addElement(1);
+        }
+    }
+
 }
