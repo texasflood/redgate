@@ -29,6 +29,7 @@ public class WordCount
                 {
                     if (buffer.length() != 0)
                     {
+                        addWord(buffer, wordsList);
                         buffer = "";
                     }
                 }
@@ -37,12 +38,34 @@ public class WordCount
             {
                 if (buffer.length() != 0)
                 {
+                    addWord(buffer, wordsList);
                 }
+                Collections.sort(wordsList, new CustomComparator());
                 System.out.println("Finished Reading File");
+                for (int i = 0; i < wordsList.size(); i++)
+                {
+                    System.out.println(wordsList.get(i));
+                }
                 finished = true;
             }
         }
     }
-
+    private static void addWord(String buffer, List<WordData> wordsList)
+    {
+        boolean foundWord = false;
+        for (int i = 0; i < wordsList.size(); i++)
+        {
+            if ((wordsList.get(i)).checkEquality(buffer))
+            {
+                (wordsList.get(i)).incrFreq();
+                foundWord = true;
+                break;
+            }
+        }
+        if (!foundWord)
+        {
+            wordsList.add(new WordData(buffer));
+        }
+    }
 }
 

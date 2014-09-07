@@ -5,7 +5,7 @@ public class WordData
     private String word;
     private int frequency;
 
-    public void WordData (String inputWord)
+    public WordData (String inputWord)
     {
         word = inputWord.toLowerCase();
         frequency = 1;
@@ -14,6 +14,16 @@ public class WordData
     public boolean checkEquality (String potentialDuplicate)
     {
         return word.equals(potentialDuplicate.toLowerCase());
+    }
+
+    public int getFreq()
+    {
+        return frequency;
+    }
+
+    public String getWord()
+    {
+        return word;
     }
 
     public void incrFreq()
