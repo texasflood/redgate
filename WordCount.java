@@ -1,6 +1,8 @@
 package wordcount;
 import java.io.EOFException;
-import java.util.*;
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WordCount 
 {

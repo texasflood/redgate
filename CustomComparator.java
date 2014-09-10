@@ -1,15 +1,15 @@
 package wordcount;
-import java.util.*;
+import java.util.Comparator;
 
 public class CustomComparator implements Comparator<WordData> {
     @Override
-    public int compare(WordData o1, WordData o2) {
-        int c;
-        c = o2.getFreq() - o1.getFreq();
-        if (c == 0)
+    public int compare(WordData firstWord, WordData secondWord) {
+        int comparison;
+        comparison = secondWord.getFreq() - firstWord.getFreq();
+        if (comparison == 0)
         {
-            c = o1.getWord().compareTo(o2.getWord());
+            comparison = firstWord.getWord().compareTo(secondWord.getWord());
         }
-        return c;
+        return comparison;
     }
 }
