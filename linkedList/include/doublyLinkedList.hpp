@@ -4,10 +4,11 @@
 class doublyLinkedList
 {
     private:
-        doublyLinkedItem head;
-        doublyLinkedItem tail;
+        doublyLinkedItem* headRef;
+        doublyLinkedItem* tailRef;
     public:
-        doublyLinkedList(doublyLinkedItem); //Circular
-        //doublyLinkedList(doublyLinkedItem, doublyLinkedItem); //Normal
+        doublyLinkedList(doublyLinkedItem* headArg); //Circular
+        doublyLinkedList(doublyLinkedItem* headArg, doublyLinkedItem* tailArg);
+        void print (void);
         bool isCircular;
 };

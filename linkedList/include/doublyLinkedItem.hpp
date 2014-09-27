@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 class doublyLinkedItem
 {
@@ -15,5 +16,6 @@ class doublyLinkedItem
         int getVal(void);
 
         //Constructor
-        doublyLinkedItem(doublyLinkedItem*, doublyLinkedItem*, int);
+        doublyLinkedItem(doublyLinkedItem* nextItem, doublyLinkedItem* prevItem, int passedValue);
+        void print (void);
 };

@@ -36,3 +36,8 @@ int doublyLinkedItem::getVal(void)
 {
     return value;
 }
+
+void doublyLinkedItem::print (void)
+{
+    std::cout << value << std::endl;
+}
