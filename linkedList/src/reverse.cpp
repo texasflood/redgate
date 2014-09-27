@@ -1,14 +1,14 @@
 #include <iostream>
-#include "reverse.hpp"
+#include "../include/doublyLinkedList.hpp"
 
 void reverse(doublyLinkedList theList);
 
 int main()
 {
-    doublyLinkedList theList = doublyLinkedList();
+//    doublyLinkedList theList = doublyLinkedList();
 
-    theList.reverse();
-    theList.print();
+//    theList.reverse();
+//    theList.print();
 
     return 0;
 }

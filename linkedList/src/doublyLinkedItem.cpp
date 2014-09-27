@@ -1,38 +1,38 @@
 #include "../include/doublyLinkedItem.hpp"
 
-doublyLinkedItem::doublyLinkedItem(*doublyLinkedItem nextItem, *doublyLinkedItem prevItem, int passedValue);
+doublyLinkedItem::doublyLinkedItem(doublyLinkedItem* nextItem, doublyLinkedItem* prevItem, int passedValue)
 {
     next = nextItem;
     prev = prevItem;
     value = passedValue;
 }
 
-void setNext(*doublyLinkedItem newNext)
+void doublyLinkedItem::setNext(doublyLinkedItem* newNext)
 {
     next = newNext;
 }
 
-void setPrev(*doublyLinkedItem newPrev)
+void doublyLinkedItem::setPrev(doublyLinkedItem* newPrev)
 {
     prev = newPrev;
 }
 
-void setVal(int newVal)
+void doublyLinkedItem::setVal(int newVal)
 {
     value = newVal;
 }
 
-*doublyLinkedItem getNext(void)
+doublyLinkedItem* doublyLinkedItem::getNext(void)
 {
     return next;
 }
 
-*doublyLinkedItem getPrev(void)
+doublyLinkedItem* doublyLinkedItem::getPrev(void)
 {
     return prev;
 }
 
-int getVal(void)
+int doublyLinkedItem::getVal(void)
 {
     return value;
 }
