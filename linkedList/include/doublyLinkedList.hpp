@@ -7,7 +7,7 @@ class doublyLinkedList
         doublyLinkedItem head;
         doublyLinkedItem tail;
     public:
-        doublyLinkedList(*doublyLinkedItem); //Circular
-        doublyLinkedList(*doublyLinkedItem, *doublyLinkedItem); //Normal
+        doublyLinkedList(doublyLinkedItem); //Circular
+        //doublyLinkedList(doublyLinkedItem, doublyLinkedItem); //Normal
         bool isCircular;
 };

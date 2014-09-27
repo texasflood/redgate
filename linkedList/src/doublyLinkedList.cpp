@@ -1,14 +1,14 @@
 #include "../include/doublyLinkedList.hpp"
 
-doublyLinkedList::doublyLinkedList(*doublyLinkedItem headArg)
+doublyLinkedList::doublyLinkedList(doublyLinkedItem headArg) : headArg(
 {
     isCircular = true;
-    head = &headArg;
+    head = headArg;
 }
 
-doublyLinkedList::doublyLinkedList(*doublyLinkedItem headArg, *doublyLinkedItem tailArg)
-{
-    isCircular = false;
-    head = &headArg;
-    tail = &tailArg;
-}
+//doublyLinkedList::doublyLinkedList(doublyLinkedItem headArg, doublyLinkedItem tailArg) 
+//{
+//    isCircular = false;
+//    head = headArg;
+//    tail = tailArg;
+//}
