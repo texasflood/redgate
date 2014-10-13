@@ -5,9 +5,11 @@ doublyLinkedList::doublyLinkedList (int value)
     items = std::vector<doublyLinkedItem>();
     isCircular = false;
     doublyLinkedItem initialHead = doublyLinkedItem (NULL, NULL, value);
+    doublyLinkedItem initialHead2 = doublyLinkedItem (NULL, &initialHead, value + 1);
+    initialHead.setNext (&initialHead2);
     //items.push_back(initialHead);
     headRef = &initialHead;
-    tailRef = headRef;
+    tailRef = &initialHead2;
 }
 
 void doublyLinkedList::makeCircular (void)
@@ -34,13 +36,6 @@ void doublyLinkedList::unmakeCircular (doublyLinkedItem* splitPoint)
 
 void doublyLinkedList::append (int value)
 {
-    //std::cout << "Top, head is: " << ((*headRef).getVal()) << std::endl;
-    doublyLinkedItem* tempTail = tailRef;
-    doublyLinkedItem tempAppend = doublyLinkedItem (NULL, tailRef, value);
-    //items.push_back(tempAppend);
-    tailRef = &tempAppend;
-    (*tempTail).setNext (tailRef);
-    //std::cout << "Test, head is: " << ((*headRef).getVal()) << std::endl;
 }
 
 
